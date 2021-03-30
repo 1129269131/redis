@@ -1,0 +1,55 @@
+1、DEL key 删除
+127.0.0.1:3679> DEL k1
+
+2、append 123456 添加
+127.0.0.1:3679> append k1 123456
+
+3、STRLEN key 获取key的长度
+127.0.0.1:3679> STRLEN k1
+
+set k2 1
+3、INCR key 单路递增，每运行一次，数字加1
+127.0.0.1:3679> INCR k2
+
+4、INCRBY key num 多路递增，每运行一次，数字加num
+127.0.0.1:3679> INCRBY k2 3
+
+5、DECR key 单路递减，每运行一次，数字减1
+127.0.0.1:3679> DECR k2
+
+6、DECRBY key num 多路递减，每运行一次，数字减num
+127.0.0.1:3679> DECRBY k2 3
+
+7、GETRANGE key num1 num2 范围内取值
+127.0.0.1:3679> GETRANGE k1 0 -1
+
+8、SETRANGE key num1 值 范围内设值
+127.0.0.1:3679> SETRANGE k1 0 xxx
+
+9、setex(set with expire) key 秒数 值：设置值的同时设置过期时间
+127.0.0.1:3679> setex k3 10 v4
+
+10、setnx(set if not exist) key 值：设置的key不存在设置才能成功，失败返回0，成功返回1
+127.0.0.1:3679> setnx k1 v1
+
+11、mset(more set) 批量新增
+127.0.0.1:3679> mset k1 v1 k2 v2 k3 v3
+
+12、mget(more get) 批量获取
+127.0.0.1:3679> mget k1 k2 k3
+
+14、msetnx(more setnx) 不存在批量新增（全部不存在的才行，部分的不行）
+127.0.0.1:3679> msetnx k3 v3 k4 v4
+
+
+
+
+
+
+
+
+
+
+
+
+

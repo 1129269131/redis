@@ -1,0 +1,17 @@
+1、select 命令切换数据库库
+127.0.0.1:3679> select 7
+
+2、DBSIZE 查看当前数据库的key的数量
+127.0.0.1:3679> DBSIZE
+
+3、keys * 查看当前数据库的所有key
+127.0.0.1:3679> keys *
+
+4、keys k? 查看当前匹配的key
+127.0.0.1:3679> keys k?
+
+5、FLUSHDB 清空当前库
+127.0.0.1:3679> FLUSHDB
+
+6、FLUSHALL 清空所有库
+127.0.0.1:3679> FLUSHALL
