@@ -1,0 +1,47 @@
+hash（哈希）：KV模式不变,但V是一个键值对
+
+1、HSET hash名 key value 添加
+127.0.0.1:3679> HSET user id 11
+
+2、HGET hash名 key 查看
+127.0.0.1:3679> HGET user id
+
+3、HMSET hash名 key1 value1 key2 value2 key3 value3... 多添加
+127.0.0.1:3679> HMSET customer id 11 name li4 age 26
+
+4、HMGET hash名 key1 key2 key3... 多查看
+127.0.0.1:3679> HMGET customer id name age
+
+5、HGETALL hash名 多查看
+127.0.0.1:3679> HGETALL customer 
+
+6、HDEL hash名 key 删除某一个key
+127.0.0.1:3679> HDEL customer name
+
+7、HLEN hash名 获取长度
+127.0.0.1:3679> HLEN customer
+
+8、HEXISTS hash名 key 查看是否存在某个key(存在则返回1,不存在则返回0)
+127.0.0.1:3679> HEXISTS customer id
+
+9、HKEYS hash名 查看所有的key值
+127.0.0.1:3679> HKEYS customer
+
+10、HVALS hash名 查看所有的value值
+127.0.0.1:3679> HVALS customer
+
+11、HINCRBY hash名 key num key增加num值
+127.0.0.1:3679> HINCRBY customer age 2
+
+HSET customer score 91.5
+12、HINCRBYFLOAT hash名 key floatNum key增加floatNum值
+127.0.0.1:3679> HINCRBYFLOAT customer score 0.5
+
+13、HSETNX hash名 key fvalue 如果不存在则添加
+127.0.0.1:3679> HSETNX customer email abc@126.com
+
+
+
+
+
+

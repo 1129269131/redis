@@ -1,10 +1,10 @@
-1、LPUSH list名 值1 值2 值3... 左添加
+1、LPUSH list名 value1 value2 value3... 左添加
 127.0.0.1:3679> LPUSH list01 1 2 3 4 5 6
 
 2、LRANGE list名 num1 num2 获取范围值
 127.0.0.1:3679> LRANGE list01 0 -1
 
-3、RPUSH list名 值1 值2 值3... 右添加
+3、RPUSH list名 value1 value2 value3... 右添加
 127.0.0.1:3679> RPUSH list02 1 2 3 4 5 6
 
 4、LPOP list名 栈顶出一个数据
@@ -32,7 +32,7 @@ RPUSH list03 1 1 1 2 2 2 3 3 3 4 4 4 5 6 7
 11、LSET list名 index value 将该list的索引为index位置的值修改为value
 127.0.0.1:3679> LSET list01 1 x
 
-11、LINSERT list名 before/after 值1 值2 在该list中的值1 之前/之后 插入值2
+12、LINSERT list名 before/after value1 value2 在该list中的value1 之前/之后 value2
 127.0.0.1:3679> LINSERT list01 before x java
 
 

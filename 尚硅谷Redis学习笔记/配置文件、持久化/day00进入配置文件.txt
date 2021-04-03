@@ -1,0 +1,21 @@
+使用Xshell软件进入命令行（该方法适用于vagrant虚拟机+docker+redis的方式）：
+一、进入挂载在linux中的redis
+1、启动vagrant虚拟机：
+2、启动Xshell 5进入虚拟机命令行
+3、cd /mydata/redis/conf/
+4、vi redis.conf
+
+
+
+获取redis的启动路径
+127.0.0.1:3679> config get dir
+
+获取redis的密码
+127.0.0.1:3679> config get requirepass
+
+设置redis的密码
+127.0.0.1:3679> config set requirepass "123456"
+
+redis设置密码后的访问方法：auth + password
+127.0.0.1:3679> AUTH 123456
+127.0.0.1:3679> ping

@@ -1,0 +1,33 @@
+一、
+RDB文件产生及使用其回复数据的演示过程：
+1、修改 redis.conf 配置文件
+save 900 1
+save 120 10
+save 60 10000
+
+2、执行set kn vn n 从1到11
+127.0.0.1:3679> set k1 v1
+
+3、如下目录中出现备份文件 dump.rdb（说明执行了备份）
+打开另一个ssh控制台进入redis相关文件目录
+cd /mydata/redis/data/
+
+4、SHUTDOWN 关闭redis以模拟redis异常
+127.0.0.1:3679> SHUTDOWN
+
+5、再次启动redis
+命令行下方空白输入框输入：
+	docker exec -it redis redis-cli
+
+6、keys * 查看使用dump.rdb回复后的数据情况
+127.0.0.1:3679> keys *
+
+7、redis包含了之前设置的数据，说明了RDB持久化起作用了
+
+二、
+立即产生RDB备份文件：
+1、往redis中添加任意数据
+127.0.0.1:3679> set k100 v100
+
+2、执行保存命令
+127.0.0.1:3679> save

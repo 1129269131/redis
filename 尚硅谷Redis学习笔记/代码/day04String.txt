@@ -23,13 +23,13 @@ set k2 1
 7、GETRANGE key num1 num2 范围内取值
 127.0.0.1:3679> GETRANGE k1 0 -1
 
-8、SETRANGE key num1 值 范围内设值
+8、SETRANGE key num value 范围内设值
 127.0.0.1:3679> SETRANGE k1 0 xxx
 
-9、setex(set with expire) key 秒数 值：设置值的同时设置过期时间
+9、setex(set with expire) key second value：设置值的同时设置过期时间
 127.0.0.1:3679> setex k3 10 v4
 
-10、setnx(set if not exist) key 值：设置的key不存在设置才能成功，失败返回0，成功返回1
+10、setnx(set if not exist) key value：设置的key不存在设置才能成功，失败返回0，成功返回1
 127.0.0.1:3679> setnx k1 v1
 
 11、mset(more set) 批量新增
@@ -38,7 +38,7 @@ set k2 1
 12、mget(more get) 批量获取
 127.0.0.1:3679> mget k1 k2 k3
 
-14、msetnx(more setnx) 不存在批量新增（全部不存在的才行，部分的不行）
+13、msetnx(more setnx) 不存在批量新增（全部不存在的才行，部分的不行）
 127.0.0.1:3679> msetnx k3 v3 k4 v4
 
 

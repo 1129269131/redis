@@ -1,0 +1,40 @@
+1、SADD set名 value1 value2 value3... 添加
+127.0.0.1:3679> SADD set01 1 1 2 2 3 3
+
+2、SMEMBERS set名 查看所有
+127.0.0.1:3679> SMEMBERS set01
+
+3、SISMEMBER set名 value 查看指定value
+127.0.0.1:3679> SISMEMBER set01 1
+
+4、SCARD 获取集合里面的元素个数
+127.0.0.1:3679> SCARD set01
+
+5、SREM set名 value 删除集合中的元素
+127.0.0.1:3679> SREM set01 3
+
+SADD set02 1 2 3 4 5 6 7
+6、SRANDMEMBER set名 num 随机出num个数
+127.0.0.1:3679> SRANDMEMBER set02 3
+
+7、SPOP set名 随机出栈
+127.0.0.1:3679> SPOP set01 
+
+8、SMOVE set名1 set名2 value 将在set名1中的value赋给set名2
+127.0.0.1:3679> SMOVE set01 set02 2
+
+数学集合类：
+SADD set01 1 2 3 4 5
+SADD set02 1 2 3 a b
+9、差集（在第一个set里面而不再后面任何一个set里面的项）：SDIFF set名1 set名2...  
+127.0.0.1:3679> SDIFF set01 set02
+
+10、交集：SINTER set名1 set名2...  
+127.0.0.1:3679> SINTER set01 set02
+
+11、并集：SUNION set名1 set名2...  
+127.0.0.1:3679> SUNION set01 set02
+
+
+
+
