@@ -1,3 +1,7 @@
+启动redis
+命令行下方空白输入框输入：
+	docker exec -it redis redis-cli
+
 使用Xshell软件进入命令行（该方法适用于vagrant虚拟机+docker+redis的方式）：
 一、进入挂载在linux中的redis
 1、启动vagrant虚拟机：

@@ -1,0 +1,8 @@
+一、
+配置文件redis.conf开启AOF
+appendonly yes
+appendfilename "appendonly.aof"
+
+二、
+修复异常的appendonly.aof文件
+[root@localhost data]# redis-check-aof --fix appendonly.aof
