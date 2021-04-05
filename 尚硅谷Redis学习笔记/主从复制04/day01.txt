@@ -1,0 +1,74 @@
+查看默认安装目录：cd /usr/local/bin
+进入redis配置文件目录：cd /opt/redis-3.0.4
+查看文件夹下所有文件：ls -l
+复制配置文件到myredis目录下：[root@localhost redis-3.0.4]# cp redis.conf /myredis/
+进入redis复制的配置文件目录：cd /myredis/
+编辑redis.conf配置文件：[root@localhost myredis]# vim redis.conf
+查看redis进程是否已启动：[root@localhost myredis]# ps -ef|grep redis
+启动redis：[root@localhost bin]# redis-server /myredis/redis.conf
+进入redis操作界面：[root@localhost ~]# redis-cli -p 6380
+
+
+启动redis
+命令行下方空白输入框输入：
+	docker exec -it redis redis-cli
+
+使用Xshell软件进入命令行：
+一、进入挂载在linux中的redis
+1、启动vagrant虚拟机：
+2、启动Xshell 5进入虚拟机命令行
+3、cd /mydata/redis/conf/
+4、复制redis.conf文件：
+	[root@localhost conf]# cp redis.conf redis6379.conf
+	[root@localhost conf]# cp redis.conf redis6380.conf
+	[root@localhost conf]# cp redis.conf redis6381.conf
+5、修改redis6380.conf与redis6381.conf的文件
+	[root@localhost conf]# vi redis6380.conf
+	
+	pidfile /var/run/redis6380.pid
+	prort 6380
+	logfile "6380.log"
+	dbfilename dump6380.rdb
+	
+6、分别启动三个redis
+	一、
+	[root@localhost bin]# redis-server /myredis/redis.conf
+	[root@localhost bin]# redis-cli -p 6379
+	
+·	二、
+	[root@localhost bin]# redis-server /myredis/redis6380.conf
+	[root@localhost bin]# redis-cli -p 6380
+	
+	三、
+	[root@localhost bin]# redis-server /myredis/redis6381.conf
+	[root@localhost bin]# redis-cli -p 6381
+
+二、一主二仆
+1、查看redis信息（主从机的判断，role:master为主机，role:slave 为从机）
+127.0.0.1:6379> info replication
+
+2、从redis设置主redis（此时从机中的数据包含了主机之前写入的所有数据）
+127.0.0.1:6380> SLAVEOF 127.0.0.1 6379
+127.0.0.1:6381> SLAVEOF 127.0.0.1 6379
+
+3、测试从机是否可以写入数据（从机不允许写数据，读写分离）
+127.0.0.1:6380> set k6 v6
+
+4、测试主机挂了的时候，从机是否乘机上位的情况
+127.0.0.1:6379> SHUTDOWN
+not connected> exit
+
+127.0.0.1:6380> info replication
+127.0.0.1:6381> info replication
+
+5、测试从机挂的情况下，重新启动，此时的redis是否还是从机
+从机每次与master断开之后，都需要重新连接，除非配置进了redis.conf文件
+127.0.0.1:6380> SHUTDOWN
+not connected> exit
+[root@localhost ~]# redis-server /myredis/redis6380.conf
+[root@localhost ~]# redis-cli -p 6380
+127.0.0.1:6380> info replication
+127.0.0.1:6380> SLAVEOF 127.0.0.1 6379
+
+
+
