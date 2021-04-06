@@ -1,0 +1,22 @@
+一、薪火相传
+127.0.0.1:6381> SLAVEOF 127.0.0.1 6380
+
+127.0.0.1:6379> set k9 v9
+127.0.0.1:6380> get k9
+127.0.0.1:6381> get k9
+
+127.0.0.1:6380> info replication
+role:slave
+connected_slaves:1
+
+二、反客为主
+在一主二仆情景下：
+127.0.0.1:6379> SHUTDOWN
+not connected> exit
+
+127.0.0.1:6380> SLAVEOF no one
+127.0.0.1:6380> info replication
+
+127.0.0.1:6381> SLAVEOF 127.0.0.1 6380
+
+
