@@ -1,28 +1,13 @@
-查看默认安装目录：cd /usr/local/bin
-进入redis配置文件目录：cd /opt/redis-3.0.4
-查看文件夹下所有文件：ls -l
-复制配置文件到myredis目录下：[root@localhost redis-3.0.4]# cp redis.conf /myredis/
-进入redis复制的配置文件目录：cd /myredis/
-编辑redis.conf配置文件：[root@localhost myredis]# vim redis.conf
-查看redis进程是否已启动：[root@localhost myredis]# ps -ef|grep redis
-启动redis：[root@localhost bin]# redis-server /myredis/redis.conf
-进入redis操作界面：[root@localhost ~]# redis-cli -p 6380
-
-
-启动redis
-命令行下方空白输入框输入：
-	docker exec -it redis redis-cli
-
 使用Xshell软件进入命令行：
-一、进入挂载在linux中的redis
+一、开启三个redis命令窗口（Xshell软件命令窗口可右键--》复制(D) 复制出新的命令窗口）
 1、启动vagrant虚拟机：
 2、启动Xshell 5进入虚拟机命令行
-3、cd /mydata/redis/conf/
+3、cd /myredis/
 4、复制redis.conf文件：
-	[root@localhost conf]# cp redis.conf redis6379.conf
-	[root@localhost conf]# cp redis.conf redis6380.conf
-	[root@localhost conf]# cp redis.conf redis6381.conf
-5、修改redis6380.conf与redis6381.conf的文件
+	[root@localhost myredis]# cp redis.conf redis6379.conf
+	[root@localhost myredis]# cp redis.conf redis6380.conf
+	[root@localhost myredis]# cp redis.conf redis6381.conf
+5、分别修改redis6380.conf与redis6381.conf文件，修改内容如下（以修改redis6380.conf为例）：
 	[root@localhost conf]# vi redis6380.conf
 	
 	pidfile /var/run/redis6380.pid
@@ -44,7 +29,7 @@
 	[root@localhost bin]# redis-cli -p 6381
 
 二、一主二仆
-1、查看redis信息（主从机的判断，role:master为主机，role:slave 为从机）
+1、查看redis信息（主从机的判断，role:master为主机，role:slave 为从机。从机数量的信息：connected_slaves:2）
 127.0.0.1:6379> info replication
 
 2、从redis设置主redis（此时从机中的数据包含了主机之前写入的所有数据）
@@ -68,6 +53,7 @@ not connected> exit
 [root@localhost ~]# redis-server /myredis/redis6380.conf
 [root@localhost ~]# redis-cli -p 6380
 127.0.0.1:6380> info replication
+
 127.0.0.1:6380> SLAVEOF 127.0.0.1 6379
 
 
