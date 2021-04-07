@@ -6,6 +6,7 @@ import redis.clients.jedis.JedisPoolConfig;
 
 /**
  * Create by koala on 2021-04-06
+ * JedisPool：双重检查懒汉式单例
  */
 public class JedisPoolUtilday06 {
     private static volatile JedisPool jedisPool = null;

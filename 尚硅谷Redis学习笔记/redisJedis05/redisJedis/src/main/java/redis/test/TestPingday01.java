@@ -4,6 +4,7 @@ import redis.clients.jedis.Jedis;
 
 /**
  * Create by koala on 2021-04-06
+ * 测试联通
  */
 public class TestPingday01 {
 

@@ -5,6 +5,7 @@ import redis.clients.jedis.Transaction;
 
 /**
  * Create by koala on 2021-04-06
+ * 事务
  */
 public class TestTXday03 {
 

@@ -5,6 +5,7 @@ import redis.clients.jedis.Transaction;
 
 /**
  * Create by koala on 2021-04-06
+ * 事务
  * 使用之前先在redis中添加balance与debt
  * 127.0.0.1:6379> set balance 100
  * 127.0.0.1:6379> set debt 0
@@ -31,7 +32,7 @@ public class TestTXday04 {
             System.out.println("modify");
             return false;
         } else {
-            System.out.println("***********transaction");
+            System.out.println("------------ transaction ------------");
             Transaction transaction = jedis.multi();
             transaction.decrBy("balance", amtToSubtract);
             transaction.incrBy("debt", amtToSubtract);
@@ -39,8 +40,8 @@ public class TestTXday04 {
             balance = Integer.parseInt(jedis.get("balance"));
             debt = Integer.parseInt(jedis.get("debt"));
 
-            System.out.println("*******" + balance);
-            System.out.println("*******" + debt);
+            System.out.println("balance = " + balance);
+            System.out.println("debt = " + debt);
             return true;
         }
     }
@@ -53,11 +54,10 @@ public class TestTXday04 {
      * 足够的话，就启动事务进行更新操作，
      * 如果在此期间键balance被其它人修改，那在提交事务（执行exec）时就会报错，
      * 程序中通常可以捕获这类错误再重新执行一次，直到成功。
-     * @throws InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
         TestTXday04 test = new TestTXday04();
         boolean retValue = test.transMethod();
-        System.out.println("main retValue-------: " + retValue);
+        System.out.println("main retValue：" + retValue);
     }
 }

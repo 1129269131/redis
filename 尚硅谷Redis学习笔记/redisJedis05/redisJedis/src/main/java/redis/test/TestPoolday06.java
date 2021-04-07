@@ -5,13 +5,13 @@ import redis.clients.jedis.JedisPool;
 
 /**
  * Create by koala on 2021-04-06
+ * JedisPool测试
  */
 public class TestPoolday06 {
 
     public static void main(String[] args) {
         JedisPool jedisPool = JedisPoolUtilday06.getJedisPoolInstance();
         JedisPool jedisPool2 = JedisPoolUtilday06.getJedisPoolInstance();
-
         System.out.println(jedisPool == jedisPool2);
 
         Jedis jedis = null;

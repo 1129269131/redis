@@ -1,5 +1,5 @@
 哨兵模式（反客为主的自动版）
-一、
+一、启动哨兵
 自定义的/myredis目录下新建sentinel.conf文件，名字绝不能错：
 [root@localhost ~]# cd /myredis/
 [root@localhost myredis]# touch sentinel.conf
@@ -10,7 +10,7 @@ sentinel monitor 被监控数据库名字(自己起名字) 127.0.0.1 6379 1
 [root@localhost bin]# redis-sentinel /myredis/sentinel.conf
 此时开启了哨兵模式
 
-二、
+二、模拟原有的master挂了，投票新选主机
 在一主二仆情景下：
 127.0.0.1:6379> SHUTDOWN
 not connected> exit

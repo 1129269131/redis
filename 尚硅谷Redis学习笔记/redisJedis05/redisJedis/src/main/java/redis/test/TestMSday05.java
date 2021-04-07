@@ -4,7 +4,8 @@ import redis.clients.jedis.Jedis;
 
 /**
  * Create by koala on 2021-04-06
- * 内存速度过快的原因，所以初次执行结果会为null，需再执行一次才能得到正确结果
+ * 主从复制
+ * PS：内存速度过快的原因，所以初次执行结果会为null，需再执行一次才能得到正确结果
  */
 public class TestMSday05 {
 
