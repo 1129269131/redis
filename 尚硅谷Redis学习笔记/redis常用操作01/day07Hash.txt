@@ -7,7 +7,7 @@ hash（哈希）：KV模式不变,但V是一个键值对
 127.0.0.1:3679> HGET user id
 
 3、HMSET hash名 key1 value1 key2 value2 key3 value3... 多添加
-127.0.0.1:3679> HMSET customer id 11 name li4 age 26
+127.0.0.1:3679> HMSET customer id 11 name lisi age 26
 
 4、HMGET hash名 key1 key2 key3... 多查看
 127.0.0.1:3679> HMGET customer id name age

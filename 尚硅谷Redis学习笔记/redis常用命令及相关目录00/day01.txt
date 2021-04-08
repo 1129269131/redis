@@ -1,9 +1,25 @@
-查看默认安装目录：cd /usr/local/bin
-进入redis配置文件目录：cd /opt/redis-3.0.4
+查看默认安装目录：
+	[root@localhost ~]# cd /usr/local/bin
+
+进入redis配置文件目录：
+	[root@localhost ~]# cd /opt/redis-3.0.4
+
 查看文件夹下所有文件：ls -l
-复制配置文件到myredis目录下：[root@localhost redis-3.0.4]# cp redis.conf /myredis/
-进入redis复制的配置文件目录：cd /myredis/
-编辑redis.conf配置文件：[root@localhost myredis]# vim redis.conf
-查看redis进程是否已启动：[root@localhost myredis]# ps -ef|grep redis
-启动redis：[root@localhost bin]# redis-server /myredis/redis.conf
-进入redis操作界面：[root@localhost ~]# redis-cli -p 6380
+
+复制配置文件到myredis目录下：
+	[root@localhost redis-3.0.4]# cp redis.conf /myredis/
+
+进入redis复制的配置文件目录：
+	[root@localhost ~]# cd /myredis/
+	
+编辑redis.conf配置文件：
+	[root@localhost myredis]# vim redis.conf
+	
+查看redis进程是否已启动：
+	[root@localhost myredis]# ps -ef|grep redis
+	
+启动redis：
+	[root@localhost bin]# redis-server /myredis/redis.conf
+	
+进入redis操作界面：
+	[root@localhost ~]# redis-cli -p 6380

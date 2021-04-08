@@ -38,10 +38,10 @@ Zset（sorted set）：在set基础上，加一个score值
 12、ZSCORE zset名 value 获取指定value值的score
 127.0.0.1:3679> ZSCORE zset01 v4
 
-13、ZREVRANK zset名 value 获取指定value值的逆序下标值
+13、ZREVRANK zset名 value 获取指定value值的倒序下标值
 127.0.0.1:3679> ZREVRANK zset01 v4
 
-14、ZREVRANGE zset名 num1 num2 逆序获得下标值
+14、ZREVRANGE zset名 num1 num2 倒序查看
 127.0.0.1:3679> ZREVRANGE zset01 0 -1
 
 15、ZREVRANGEBYSCORE zset名 结束score 开始score 倒序指定score范围的查看（[结束score,开始score]）

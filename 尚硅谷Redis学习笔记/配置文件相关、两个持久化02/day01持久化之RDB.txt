@@ -10,14 +10,13 @@ save 60 10000
 
 3、如下目录中出现备份文件 dump.rdb（说明执行了备份）
 打开另一个ssh控制台进入redis相关文件目录
-cd /mydata/redis/data/
+[root@localhost ~]# cd /usr/local/bin
+[root@localhost ~]# ls -l
 
 4、SHUTDOWN 关闭redis以模拟redis异常
 127.0.0.1:3679> SHUTDOWN
 
 5、再次启动redis
-命令行下方空白输入框输入：
-	docker exec -it redis redis-cli
 
 6、keys * 查看使用dump.rdb回复后的数据情况
 127.0.0.1:3679> keys *

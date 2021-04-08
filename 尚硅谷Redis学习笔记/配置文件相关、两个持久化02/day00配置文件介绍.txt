@@ -1,16 +1,14 @@
-启动redis
-命令行下方空白输入框输入：
-	docker exec -it redis redis-cli
-
-使用Xshell软件进入命令行（该方法适用于vagrant虚拟机+docker+redis的方式）：
+使用Xshell软件进入redis配置文件：
 一、进入挂载在linux中的redis
 1、启动vagrant虚拟机：
 2、启动Xshell 5进入虚拟机命令行
-3、cd /mydata/redis/conf/
-4、vi redis.conf
+3、进入redis复制的配置文件目录：
+	[root@localhost ~]# cd /myredis/
+4、编辑redis.conf配置文件：
+	[root@localhost myredis]# vim redis.conf
 
 
-
+其他命令：
 获取redis的启动路径
 127.0.0.1:3679> config get dir
 

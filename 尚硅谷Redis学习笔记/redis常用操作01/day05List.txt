@@ -32,7 +32,7 @@ RPUSH list03 1 1 1 2 2 2 3 3 3 4 4 4 5 6 7
 11、LSET list名 index value 将该list的索引为index位置的值修改为value
 127.0.0.1:3679> LSET list01 1 x
 
-12、LINSERT list名 before/after value1 value2 在该list中的value1 之前/之后 value2
+12、LINSERT list名 before/after value1 value2 在该list中的值为value1的 之前/之后 插入value2
 127.0.0.1:3679> LINSERT list01 before x java
 
 

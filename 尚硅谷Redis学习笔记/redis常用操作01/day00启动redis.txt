@@ -1,0 +1,9 @@
+进入redis命令行：
+1、启动vagrant虚拟机：
+2、启动Xshell 5进入虚拟机命令行
+3、启动redis：
+	[root@localhost bin]# redis-server /myredis/redis.conf
+4、进入redis操作界面：
+	[root@localhost ~]# redis-cli -p 6380
+5、回车即可进入redis命令行
+	127.0.0.1:6380> 
