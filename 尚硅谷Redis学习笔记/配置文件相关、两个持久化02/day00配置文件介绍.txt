@@ -8,7 +8,7 @@
 	[root@localhost myredis]# vim redis.conf
 
 
-其他命令：
+访问密码的查看、设置：
 获取redis的启动路径
 127.0.0.1:3679> config get dir
 
