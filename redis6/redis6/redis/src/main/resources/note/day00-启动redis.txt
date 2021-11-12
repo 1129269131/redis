@@ -1,0 +1,2 @@
+docker启动redis客户端命令：
+docker exec -it redis redis-cli
