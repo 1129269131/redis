@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * @auther zzyy
- * @create 2021-05-01 19:55
+ * day02
+ * Create by koala on 2021-11-13
  */
 @RestController
 @Slf4j

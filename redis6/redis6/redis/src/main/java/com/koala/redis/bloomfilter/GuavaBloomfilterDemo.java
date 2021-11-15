@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @auther zzyy
- * @create 2021-05-20 16:43
+ * day05：
+ *  Guava版布隆过滤器
+ * Create by koala on 2021-11-14
  */
 public class GuavaBloomfilterDemo
 {
@@ -16,7 +17,7 @@ public class GuavaBloomfilterDemo
     //布隆过滤器里预计要插入多少数据
     public static int size = 100 * _1W;
     //误判率,它越小误判的个数也就越少(思考，是不是可以设置的无限小，没有误判岂不更好)
-    public static double fpp = 0.01;
+    public static double fpp = 0.03;
 
     /**
      * helloworld入门
@@ -25,15 +26,16 @@ public class GuavaBloomfilterDemo
     {
         // 创建布隆过滤器对象
         BloomFilter<Integer> filter = BloomFilter.create(Funnels.integerFunnel(), 100);
+
         // 判断指定元素是否存在
         System.out.println(filter.mightContain(1));
         System.out.println(filter.mightContain(2));
+
         // 将元素添加进布隆过滤器
         filter.put(1);
         filter.put(2);
         System.out.println(filter.mightContain(1));
         System.out.println(filter.mightContain(2));
-
     }
 
     /**
@@ -48,8 +50,10 @@ public class GuavaBloomfilterDemo
         for (int i = 0; i < size; i++) {
             bloomFilter.put(i);
         }
-       /* List<Integer> listSample = new ArrayList<>(size);
+
         //2 这100万的样本数据，是否都在布隆过滤器里面存在？
+        List<Integer> listSample = new ArrayList<>(size);
+
         for (int i = 0; i < size; i++)
         {
             if (bloomFilter.mightContain(i)) {
@@ -57,10 +61,10 @@ public class GuavaBloomfilterDemo
                 continue;
             }
         }
-        System.out.println("存在的数量：" + listSample.size());*/
+        System.out.println("存在的数量：" + listSample.size());
 
         //3 故意取10万个不在过滤器里的值，看看有多少个会被认为在过滤器里,误判率演示
-        List<Integer> list = new ArrayList<>(10 * _1W);
+        /*List<Integer> list = new ArrayList<>(10 * _1W);
 
         for (int i = size+1; i < size + 100000; i++)
         {
@@ -69,7 +73,7 @@ public class GuavaBloomfilterDemo
                 list.add(i);
             }
         }
-        System.out.println("误判的数量：" + list.size());
+        System.out.println("误判的数量：" + list.size());*/
     }
 
     public static void main(String[] args)

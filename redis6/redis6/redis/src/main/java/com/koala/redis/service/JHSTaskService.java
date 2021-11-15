@@ -15,8 +15,9 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @auther zzyy
- * @create 2021-05-09 14:47
+ * day06：
+ *  聚划算：存在缓存击穿问题
+ * Create by koala on 2021-11-14
  */
 @Service
 @Slf4j
@@ -33,10 +34,12 @@ public class JHSTaskService
             while (true){
                 //模拟从数据库读取100件特价商品，用于加载到聚划算的页面中
                 List<Product> list=this.products();
+
                 //采用redis list数据结构的lpush来实现存储
                 this.redisTemplate.delete(Constants.JHS_KEY);
                 //lpush命令
                 this.redisTemplate.opsForList().leftPushAll(Constants.JHS_KEY,list);
+
                 //间隔一分钟 执行一遍
                 try { TimeUnit.MINUTES.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
 

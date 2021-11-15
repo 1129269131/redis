@@ -10,8 +10,8 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @auther zzyy
- * @create 2021-05-02 18:16
+ * day03
+ * Create by koala on 2021-11-14
  */
 @Service
 @Slf4j
@@ -26,7 +26,7 @@ public class HyperLogLogService
     //@PostConstruct
     public void init()
     {
-        log.info("------模拟后台有用户点击，每个用户ip不同");
+        log.info("------模拟后台有用户点击，每个用户ip不同------");
         //自己启动线程模拟，实际上产不是线程
         new Thread(() -> {
             String ip = null;

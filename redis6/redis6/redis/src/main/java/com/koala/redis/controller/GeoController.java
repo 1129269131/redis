@@ -19,8 +19,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @auther zzyy
- * @create 2020-11-26 16:48
+ * day04
+ * Create by koala on 2021-11-14
  */
 @RestController
 public class GeoController
@@ -34,7 +34,7 @@ public class GeoController
     @RequestMapping(value = "/geoadd",method = RequestMethod.POST)
     public String geoAdd()
     {
-        Map<String, Point> map= new HashMap<>();
+        Map<String, Point> map = new HashMap<>();
         map.put("天安门",new Point(116.403963,39.915119));
         map.put("故宫",new Point(116.403414 ,39.924091));
         map.put("长城" ,new Point(116.024067,40.362639));
@@ -48,7 +48,7 @@ public class GeoController
     @RequestMapping(value = "/geopos",method = RequestMethod.GET)
     public Point position(String member) {
         //获取经纬度坐标
-        List<Point> list= this.redisTemplate.opsForGeo().position(CITY,member);
+        List<Point> list = this.redisTemplate.opsForGeo().position(CITY,member);
         return list.get(0);
     }
 
@@ -56,7 +56,7 @@ public class GeoController
     @RequestMapping(value = "/geohash",method = RequestMethod.GET)
     public String hash(String member) {
         //geohash算法生成的base32编码值
-        List<String> list= this.redisTemplate.opsForGeo().hash(CITY,member);
+        List<String> list = this.redisTemplate.opsForGeo().hash(CITY,member);
         return list.get(0);
     }
 
@@ -78,7 +78,7 @@ public class GeoController
         Circle circle = new Circle(116.418017, 39.914402, Metrics.MILES.getMultiplier());
         //返回50条
         RedisGeoCommands.GeoRadiusCommandArgs args = RedisGeoCommands.GeoRadiusCommandArgs.newGeoRadiusArgs().includeDistance().includeCoordinates().sortAscending().limit(10);
-        GeoResults<RedisGeoCommands.GeoLocation<String>> geoResults= this.redisTemplate.opsForGeo().radius(CITY,circle, args);
+        GeoResults<RedisGeoCommands.GeoLocation<String>> geoResults = this.redisTemplate.opsForGeo().radius(CITY,circle, args);
         return geoResults;
     }
 
@@ -92,7 +92,7 @@ public class GeoController
         //返回50条
         RedisGeoCommands.GeoRadiusCommandArgs args = RedisGeoCommands.GeoRadiusCommandArgs.newGeoRadiusArgs().includeDistance().includeCoordinates().sortAscending().limit(10);
         //半径10公里内
-        Distance distance=new Distance(10, Metrics.KILOMETERS);
+        Distance distance = new Distance(10, Metrics.KILOMETERS);
         GeoResults<RedisGeoCommands.GeoLocation<String>> geoResults= this.redisTemplate.opsForGeo().radius(CITY,member, distance,args);
         return geoResults;
     }

@@ -13,8 +13,9 @@ import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @auther zzyy
- * @create 2021-05-20 16:53
+ * day05：
+ *  redis版布隆过滤器
+ * Create by koala on 2021-11-14
  */
 public class RedissonBloomFilterDemo
 {
@@ -35,23 +36,24 @@ public class RedissonBloomFilterDemo
     static
     {
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://192.168.111.147:6379").setDatabase(0);
+        config.useSingleServer().setAddress("redis://127.0.0.1:6379").setDatabase(0);
+
         //构造redisson
         redissonClient = Redisson.create(config);
+
         //通过redisson构造rBloomFilter
         rBloomFilter = redissonClient.getBloomFilter("phoneListBloomFilter",new StringCodec());
 
         rBloomFilter.tryInit(size,fpp);
 
         // 1测试  布隆过滤器有+redis有
-        //rBloomFilter.add("10086");
-        //redissonClient.getBucket("10086",new StringCodec()).set("chinamobile10086");
+        /*rBloomFilter.add("10086");
+        redissonClient.getBucket("10086",new StringCodec()).set("chinaMobile10086");*/
 
         // 2测试  布隆过滤器有+redis无
         //rBloomFilter.add("10087");
 
-        //3 测试 ，布隆过滤器无+redis无
-
+        // 3测试  布隆过滤器无+redis无
     }
 
     private static String getPhoneListById(String IDNumber)
@@ -84,7 +86,7 @@ public class RedissonBloomFilterDemo
 
     private static String getPhoneListByMySQL(String IDNumber)
     {
-        return "chinamobile"+IDNumber;
+        return "chinaMobile" + IDNumber;
     }
 
 
@@ -94,7 +96,7 @@ public class RedissonBloomFilterDemo
         //String phoneListById = getPhoneListById("10086");
         //String phoneListById = getPhoneListById("10087"); //请测试执行2次
         String phoneListById = getPhoneListById("10088");
-        System.out.println("------查询出来的结果： "+phoneListById);
+        System.out.println("------查询出来的结果： " + phoneListById);
 
         //暂停几秒钟线程
         try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }

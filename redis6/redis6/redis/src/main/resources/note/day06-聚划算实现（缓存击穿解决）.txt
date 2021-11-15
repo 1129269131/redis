@@ -1,0 +1,25 @@
+一、缺陷版：
+0、解开 redis com.koala.redis.service.JHSTaskService.java 的@PostConstruct注解
+1、启动RedisApplication
+2、浏览器访问
+	http://localhost:5555/swagger-ui.html#/jhs-product-controller
+3、redis：使用行压缩方式返回 方式打开redis客户端
+	[root@localhost conf]# redis-cli --raw
+	[root@localhost conf]# docker exec -it redis redis-cli --raw
+4、查看控制台输出+redis数据
+
+二、升级版：
+0、解开 redis com.koala.redis.service.JHSABTaskService.java 的@PostConstruct注解
+1、启动RedisApplication
+2、浏览器访问
+	http://localhost:5555/swagger-ui.html#/jhsab-product-controller
+3、redis：使用行压缩方式返回 方式打开redis客户端
+	[root@localhost conf]# redis-cli --raw
+	[root@localhost conf]# docker exec -it redis redis-cli --raw
+4、查看控制台输出+redis数据
+
+PS：
+	注意redis查看命令为：
+		127.0.0.1:6379> lrange jhs 0 9
+		127.0.0.1:6379> lrange jhs:a 0 9
+		127.0.0.1:6379> lrange jhs:b 0 9

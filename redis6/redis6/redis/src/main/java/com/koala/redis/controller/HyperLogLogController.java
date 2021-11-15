@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * @auther zzyy
- * @create 2021-05-02 18:16
+ * day03
+ * Create by koala on 2021-11-14
  */
 @Api(description = "案例实战总03:天猫网站首页亿级UV的Redis统计方案")
 @RestController

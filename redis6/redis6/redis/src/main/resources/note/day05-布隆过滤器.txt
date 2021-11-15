@@ -1,0 +1,23 @@
+一、Guava版布隆过滤器：
+1、启动 GuavaBloomfilterDemo.java 里面的main()方法
+2、分别解开 bloomFilter2() 方法中的2、3进行测试
+3、查看控制台输出
+
+二、redis版布隆过滤器：
+1、启动 RedissonBloomFilterDemo.java 里面的main()方法
+2、执行不同的static模块的测试
+3、打开redis控制台：
+	[root@localhost conf]# redis-cli
+	[root@localhost conf]# docker exec -it redis redis-cli
+4、查看控制台输出
+5、查看redis数据
+
+PS：
+	注意redis查看命令为：
+		127.0.0.1:6379> keys *
+		127.0.0.1:6379> type 10086
+		127.0.0.1:6379> get 10086
+		127.0.0.1:6379> type {phoneListBloomFilter}:config
+		127.0.0.1:6379> hgetall {phoneListBloomFilter}:config
+		127.0.0.1:6379> type phoneListBloomFilter
+		127.0.0.1:6379> get phoneListBloomFilter

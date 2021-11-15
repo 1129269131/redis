@@ -15,8 +15,9 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @auther zzyy
- * @create 2021-05-09 15:54
+ * day06：
+ *  聚划算：升级版
+ * Create by koala on 2021-11-14
  */
 @Service
 @Slf4j
@@ -25,7 +26,7 @@ public class JHSABTaskService
     @Autowired
     private RedisTemplate redisTemplate;
 
-    //@PostConstruct ，平时注释，用时打开
+    @PostConstruct //平时注释，用时打开
     public void initJHSAB(){
         log.info("启动AB定时器计划任务淘宝聚划算功能模拟.........."+DateUtil.now());
         new Thread(() -> {
@@ -33,6 +34,7 @@ public class JHSABTaskService
             while (true){
                 //模拟从数据库读取100件特价商品，用于加载到聚划算的页面中
                 List<Product> list=this.products();
+
                 //先更新B缓存
                 this.redisTemplate.delete(Constants.JHS_KEY_B);
                 this.redisTemplate.opsForList().leftPushAll(Constants.JHS_KEY_B,list);
@@ -41,6 +43,7 @@ public class JHSABTaskService
                 this.redisTemplate.delete(Constants.JHS_KEY_A);
                 this.redisTemplate.opsForList().leftPushAll(Constants.JHS_KEY_A,list);
                 this.redisTemplate.expire(Constants.JHS_KEY_A,15L,TimeUnit.DAYS);
+
                 //间隔一分钟 执行一遍
                 try { TimeUnit.MINUTES.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
 

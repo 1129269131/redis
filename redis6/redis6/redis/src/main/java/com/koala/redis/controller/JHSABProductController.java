@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * @auther zzyy
- * @create 2021-05-09 15:58
+ * day06：
+ *  聚划算：升级版
+ * Create by koala on 2021-11-14
  */
 @RestController
 @Slf4j
