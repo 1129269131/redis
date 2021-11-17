@@ -1,4 +1,4 @@
-package com.koala.redis.test;
+package com.koala.redis_redlock.test;
 
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
@@ -7,8 +7,9 @@ import org.redisson.config.Config;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @auther zzyy
- * @create 2021-05-06 18:23
+ * day09：
+ *  看门狗
+ * Create by koala on 2021-11-16
  */
 public class WatchDogDemo
 {
@@ -30,13 +31,14 @@ public class WatchDogDemo
         redissonLock.lock();
         try
         {
-            System.out.println("1111");
+            System.out.println("1111-------biz");
             //暂停几秒钟线程
             try { TimeUnit.SECONDS.sleep(25); } catch (InterruptedException e) { e.printStackTrace(); }
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            if (redissonLock.isLocked() && redissonLock.isHeldByCurrentThread()) {
+            if(redissonLock.isLocked() && redissonLock.isHeldByCurrentThread())
+            {
                 redissonLock.unlock();
             }
         }

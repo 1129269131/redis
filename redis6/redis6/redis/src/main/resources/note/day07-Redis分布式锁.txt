@@ -1,0 +1,40 @@
+1、启动boot_redis01、boot_redis02
+
+2、redis：使用行压缩方式返回 方式打开redis客户端
+	[root@localhost conf]# redis-cli --raw
+	[root@localhost conf]# docker exec -it redis redis-cli --raw
+	
+3、设置库存
+	127.0.0.1:6379> set goods:001 100
+	
+4、浏览器访问
+	http://localhost:8081/buy_goods
+	http://localhost:8082/buy_goods
+	
+	或者通过nginx访问：
+	http://127.0.0.1:1080/buy_goods
+	
+5、使用JMeter进行压测：
+	jmeter：
+		下载地址：https://jmeter.apache.org/download_jmeter.cgi
+		启动：D:\apache-jmeter-5.4.1\bin -》双击jmeter.bat打开
+		
+	参数设置：
+		线程组配置：
+			Number of Threads(users)即线程数设置为：100
+			Ramp_up period(seconds)：0
+			其他默认
+		HTTP请求配置：
+			Protocol[http]：填写nginx地址
+			Server Name or IP：填写nginx监听的端口
+			HTTP Request：
+				GET 请求，Path：填写nginx请求的完整路径
+				
+	应用菜单栏，绿色三角形点击启动，查看控制台输出+redis数据变化
+			
+		
+6、查看控制台输出+redis数据
+
+PS：
+	注意redis查看命令为：
+		127.0.0.1:6379> get goods:001

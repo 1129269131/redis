@@ -1,0 +1,22 @@
+一、实现验证
+1、redis：使用行压缩方式返回 方式打开redis客户端
+	[root@localhost conf]# redis-cli --raw
+	[root@localhost conf]# docker exec -it redis redis-cli --raw
+	
+2、执行 WatchDogDemo.java 中的 main() 方法
+	
+3、浏览器访问（不断访问模拟用户抢锁）
+	http://localhost:9090/redlock
+	
+4、验证看门狗的续期过程（查看过期时间的数值变化）：
+	127.0.0.1:6379> ttl AAA
+	127.0.0.1:6379> ttl AAA
+	127.0.0.1:6379> ttl AAA
+	
+5、抢锁成功后，可重入锁查看（查看过期时间的数值变化）：
+	127.0.0.1:6379> hgetall AAA
+	
+二、源码分析：
+	点击 WatchDogDemo.java 类的 redissonLock.lock(); 或者redissonLock.unlock(); 方法，进入 Lock.java 接口类
+	找到Lock.java 接口类 void lock();或者void unlock();方法的实现类，选择 RedissonLock.java 实现类
+	其他的根据 Redis大厂高阶班20210511班最终版.mmap 文件进行源码的跟踪

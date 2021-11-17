@@ -1,0 +1,27 @@
+0、docker走起3台redis的master机器，本次设置3台master各自独立无从属关系
+	开启三个redis命令窗口（Xshell软件命令窗口可右键--》复制(D) 复制出新的命令窗口）：
+		docker run -p 6381:6379 --name redis-master-1 -d redis:6.0.7
+		docker run -p 6382:6379 --name redis-master-2 -d redis:6.0.7
+		docker run -p 6383:6379 --name redis-master-3 -d redis:6.0.7
+	进入实例：
+		docker exec -it redis-master-1 /bin/bash
+		root@e5a78c07404a:/data# redis-cli
+		127.0.0.1:6379> 
+		
+		docker exec -it redis-master-2 /bin/bash
+		root@9c2b7ac91a47:/data# redis-cli 
+		127.0.0.1:6379>
+		
+		docker exec -it redis-master-3 /bin/bash
+		root@821ce42540a0:/data# redis-cli
+		127.0.0.1:6379>
+
+1、启动redis_redlock
+	
+2、浏览器访问（不断访问模拟用户抢锁）
+	http://localhost:9090/redlock
+	
+3、抢锁成功后，三台redis服务器都要keys * 查看是否都加上了锁：
+	127.0.0.1:6379> keys *
+	127.0.0.1:6379> type ATGUIGU_REDLOCK
+	127.0.0.1:6379> HGETALL ATGUIGU_REDLOCK

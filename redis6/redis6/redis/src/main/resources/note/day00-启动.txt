@@ -1,0 +1,7 @@
+1、启动Oracle VM VirtualBox
+2、Xshell 6 连接linux：
+    账号：su root
+    密码：vagrant
+3、docker启动redis客户端命令：
+    [root@localhost conf]# redis-cli --raw
+	[root@localhost conf]# docker exec -it redis redis-cli --raw

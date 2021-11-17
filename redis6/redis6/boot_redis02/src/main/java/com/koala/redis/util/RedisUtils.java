@@ -5,8 +5,8 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
- * @auther zzyy
- * @create 2020-10-11 14:33
+ * day07
+ * Create by koala on 2021-11-15
  */
 public class RedisUtils
 {
@@ -16,7 +16,7 @@ public class RedisUtils
         JedisPoolConfig jedisPoolConfig=new JedisPoolConfig();
         jedisPoolConfig.setMaxTotal(20);
         jedisPoolConfig.setMaxIdle(10);
-        jedisPool=new JedisPool(jedisPoolConfig,"192.168.111.147",6379);
+        jedisPool=new JedisPool(jedisPoolConfig,"127.0.0.1",6379);
     }
 
     public static Jedis getJedis() throws Exception {

@@ -12,8 +12,8 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.io.Serializable;
 
 /**
- * @auther zzyy
- * @create 2020-09-15 14:47
+ * day07
+ * Create by koala on 2021-11-15
  */
 @Configuration
 public class RedisConfig {
@@ -35,7 +35,7 @@ public class RedisConfig {
     {
         Config config = new Config();
 
-        config.useSingleServer().setAddress("redis://192.168.111.147:6379").setDatabase(0);
+        config.useSingleServer().setAddress("redis://127.0.0.1:6379").setDatabase(0);
 
         return (Redisson) Redisson.create(config);
     }
