@@ -1,5 +1,5 @@
 1、启动 canal
-2、运行 RedisCanalClientExample.java
+2、运行 canal_demo 模块下的 RedisCanalClientExample.java
 3、测试：
 	修改mysql中表 t_user 的数据
 4、

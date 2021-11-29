@@ -1,0 +1,1 @@
+1、查看 canal_demo 模块下的 DoubleWriteConsistencyDemo.java 伪代码实例

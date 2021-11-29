@@ -1,8 +1,9 @@
 package com.koala.canal.t1;
 
 /**
- * @auther zzyy
- * @create 2021-05-30 13:56
+ * day12：
+ *   我们讨论3种更新策略 --》先删除缓存，再更新数据库
+ * Create by koala on 2021-11-28
  */
 public class DoubleWriteConsistencyDemo
 {
@@ -10,6 +11,7 @@ public class DoubleWriteConsistencyDemo
 
 
     //===========================================================================================
+    //
     //  下面都是伪代码，参考思路，
     /*public void deleteOrderData(Order order)
     {
@@ -72,6 +74,7 @@ public class DoubleWriteConsistencyDemo
         }
     }*/
 
+    // 计算延时双删所需休眠时间
     public static void main(String[] args)
     {
         long startTime = System.currentTimeMillis();
