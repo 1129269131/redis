@@ -6,8 +6,8 @@ import java.net.Socket;
 import java.util.Scanner;
 
 /**
- * @auther zzyy
- * @create 2021-06-01 11:05
+ * day16：
+ *   案例实战：NIO
  */
 public class RedisClient01
 {

@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * @auther zzyy
- * @create 2021-06-01 10:32
+ * day14：
+ *   案例实战：BIO
  */
 public class RedisClient02
 {

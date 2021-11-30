@@ -1,0 +1,12 @@
+一、先演示accept
+	1、分别启动 redis 模块的 com.koala.redis.iomultiplex.bio.accept 下的 RedisServer.java、RedisClient01.java、RedisClient02.java
+	2、在RedisServer控制台下查看输出值，在RedisClient01|RedisClient02控制台下查看输出值
+	
+二、再演示read
+	1、分别启动 redis 模块的 com.koala.redis.iomultiplex.bio.read 下的 RedisServerBIO.java、RedisClient01.java、RedisClient02.java
+	2、在RedisServerBIO控制台下查看输出值，在RedisClient01|RedisClient02控制台下输入值
+	3、退出RedisClient01后，查看RedisServerBIO控制台下输出值
+	
+二、解决方案：多线程模式
+	1、分别启动 redis 模块的 com.koala.redis.iomultiplex.bio.read.mthread 下的 RedisServerBIOMultiThread.java、RedisClient01.java、RedisClient02.java
+	2、在RedisServerBIOMultiThread控制台下查看输出值，在RedisClient01|RedisClient02控制台下输入值

@@ -1,0 +1,17 @@
+0、查看 ShortUrlUtils.java 类
+1、启动 redis 模块的 RedisApplication 应用
+2、redis：使用行压缩方式返回 方式打开redis客户端
+	[root@localhost conf]# redis-cli --raw
+	[root@localhost conf]# docker exec -it redis redis-cli --raw
+2、测试：
+	2.1：长链接转换为短链接
+		浏览器访问：
+			http://localhost:5555/shorturl/encode?longUrl=https://www.baidu.com/
+		redis查看：
+			127.0.0.1:6379> keys *
+			127.0.0.1:6379> 127.0.0.1:6379> HGETALL short:url
+			127.0.0.1:6379> hget short:url vUfUbu
+	
+	2.2：重定向到原始的URL
+		浏览器访问：
+			http://localhost:5555/shorturl/decode/vUfUbu

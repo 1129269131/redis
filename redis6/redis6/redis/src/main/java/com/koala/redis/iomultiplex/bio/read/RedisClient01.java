@@ -6,8 +6,8 @@ import java.net.Socket;
 import java.util.Scanner;
 
 /**
- * @auther zzyy
- * @create 2021-06-01 10:36
+ * day15：
+ *   案例实战：BIO
  */
 public class RedisClient01
 {
@@ -18,8 +18,7 @@ public class RedisClient01
 
         //socket.getOutputStream().write("RedisClient01".getBytes());
 
-        while(true)
-        {
+        while(true) {
             Scanner scanner = new Scanner(System.in);
             String string = scanner.next();
             if (string.equalsIgnoreCase("quit")) {

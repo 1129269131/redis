@@ -12,8 +12,9 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @auther zzyy
- * @create 2020-11-19 17:29
+ * day13：
+ *   案例实战：微信抢红包
+ * Create by koala on 2021-11-29
  */
 @RestController
 public class RedPackageController

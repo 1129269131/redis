@@ -3,8 +3,9 @@ package com.koala.redis.util;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
- * @auther zzyy
- * @create 2020-11-21 16:23
+ * day14：
+ *   案例实战：分享短连接推广
+ * Create by koala on 2021-11-29
  */
 public class ShortUrlUtils
 {
@@ -45,7 +46,7 @@ public class ShortUrlUtils
 
             //把加密字符按照8位一组16进制与 0x3FFFFFFF 进行位与运算
             // 16进制的0x3FFFFFFF等于二进制的00111111111111111111111111111111,等于10进制的1073741823
-            // 这里需要使用 long 型来转换，因为 Inteper .parseInt() 只能处理 31 位 ,
+            // 这里需要使用 long 型来转换，因为 Integer.parseInt() 只能处理 31 位 ,
             // 首位为符号位 ,如果不用 long ，则会越界，下面做&运算保证不越界。
             // 00111110100000001110101000111000，等于10进制的1048635960
             long lHexLong = 0x3FFFFFFF & Long.parseLong(sTempSubString, 16);

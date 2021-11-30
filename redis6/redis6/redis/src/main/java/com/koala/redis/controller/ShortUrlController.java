@@ -15,8 +15,9 @@ import java.util.Random;
 import java.util.concurrent.locks.StampedLock;
 
 /**
- * @auther zzyy
- * @create 2020-11-21 16:22
+ * day14：
+ *   案例实战：分享短连接推广
+ * Create by koala on 2021-11-29
  */
 @RestController
 public class ShortUrlController
@@ -38,7 +39,7 @@ public class ShortUrlController
     public String encode(@RequestParam("longUrl") String longUrl) {
 
         //一个长链接url转换为4个短加密串key
-        String [] keys= ShortUrlUtils.shortUrl(longUrl);
+        String [] keys = ShortUrlUtils.shortUrl(longUrl);
         //任意取出其中一个，我们就拿第一个
         String shortUrlKey=keys[new Random().nextInt(4)];
         //用hash存储，key=加密串，value=原始url
@@ -56,8 +57,8 @@ public class ShortUrlController
     @GetMapping(value = "/shorturl/decode/{shortUrlKey}")
     public void decode(@PathVariable String shortUrlKey) {
         //到redis中把原始url找出来
-        String url=(String) this.redisTemplate.opsForHash().get(SHORT_URL_KEY,shortUrlKey);
-        System.out.println("----准备调整到真实长地址url(注意是否有前缀：https://): "+url);
+        String url = (String) this.redisTemplate.opsForHash().get(SHORT_URL_KEY,shortUrlKey);
+        System.out.println("----准备调整到真实长地址url(注意是否有前缀：https://): " + url);
         try {
             //重定向到原始的url
             response.sendRedirect(url);
