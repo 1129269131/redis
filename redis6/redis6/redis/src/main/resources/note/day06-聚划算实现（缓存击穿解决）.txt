@@ -3,6 +3,10 @@
 1、启动RedisApplication
 2、浏览器访问
 	http://localhost:5555/swagger-ui.html#/jhs-product-controller
+	输入：
+	    page：1
+	    size：10
+	执行
 3、redis：使用行压缩方式返回 方式打开redis客户端
 	[root@localhost conf]# redis-cli --raw
 	[root@localhost conf]# docker exec -it redis redis-cli --raw
@@ -13,6 +17,10 @@
 1、启动RedisApplication
 2、浏览器访问
 	http://localhost:5555/swagger-ui.html#/jhsab-product-controller
+	输入：
+    	    page：1
+    	    size：10
+    	执行
 3、redis：使用行压缩方式返回 方式打开redis客户端
 	[root@localhost conf]# redis-cli --raw
 	[root@localhost conf]# docker exec -it redis redis-cli --raw

@@ -39,6 +39,7 @@ public class JHSABTaskService
                 this.redisTemplate.delete(Constants.JHS_KEY_B);
                 this.redisTemplate.opsForList().leftPushAll(Constants.JHS_KEY_B,list);
                 this.redisTemplate.expire(Constants.JHS_KEY_B,20L,TimeUnit.DAYS);
+
                 //再更新A缓存
                 this.redisTemplate.delete(Constants.JHS_KEY_A);
                 this.redisTemplate.opsForList().leftPushAll(Constants.JHS_KEY_A,list);

@@ -7,4 +7,6 @@
 4、使用swagger执行相关操作
 5、查看redis数据
 
-PS：注意redis查看命令为：ZRANGE city 0 -1
+PS：
+    注意redis查看命令为：
+        127.0.0.1:6379> ZRANGE city 0 -1

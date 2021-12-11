@@ -7,4 +7,6 @@
 4、使用swagger执行：增、删、改、查 命令
 5、查看mysql和redis中相关数据的变化
 
-PS：注意redis查看命令为：get user:1001
+PS：
+    注意redis查看命令为：
+        127.0.0.1:6379> get user:1001

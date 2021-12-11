@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * day01：
  *  完成任务：增、删、改、查、回写redis
- *
  * Create by koala on 2021-11-11 21:50:38
  */
 @Service
@@ -35,8 +34,8 @@ public class UserService {
         {
             //2 需要再次查询一下mysql将数据捞回来并ok
             user = userMapper.selectByPrimaryKey(user.getId());
-            //3 将捞出来的user存进redis，完成新增功能的数据一致性。
-            String key = CACHE_KEY_USER+user.getId();
+            //3 将捞出来的user存进redis，完成新增功能的数据一致性
+            String key = CACHE_KEY_USER + user.getId();
             redisTemplate.opsForValue().set(key,user);
         }
     }
@@ -47,7 +46,7 @@ public class UserService {
 
         if(i > 0)
         {
-            String key = CACHE_KEY_USER+id;
+            String key = CACHE_KEY_USER + id;
             redisTemplate.delete(key);
         }
     }

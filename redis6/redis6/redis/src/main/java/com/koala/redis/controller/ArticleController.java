@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * day02
+ * day02：
+ *  微信文章阅读量统计
  * Create by koala on 2021-11-13
  */
 @RestController

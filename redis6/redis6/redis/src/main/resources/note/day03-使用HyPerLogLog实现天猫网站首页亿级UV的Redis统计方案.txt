@@ -8,4 +8,6 @@
 4、使用swagger执行
 5、查看控制台输出+redis数据
 
-PS：注意redis查看命令为：PFCOUNT hll
+PS：
+    注意redis查看命令为：
+        127.0.0.1:6379> PFCOUNT hll

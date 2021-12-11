@@ -33,7 +33,7 @@ class RedisApplicationTests {
         System.out.println(Math.sqrt(4));
     }
 
-    //hash冲突
+    //day05：hash冲突
     @Test
     public void t3()
     {

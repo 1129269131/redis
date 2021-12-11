@@ -7,4 +7,6 @@
 4、使用swagger执行：输入articleId：1001
 5、查看控制台输出+redis数据
 
-PS：注意redis查看命令为：get article:1001
+PS：
+    注意redis查看命令为：
+        127.0.0.1:6379> get article:1001

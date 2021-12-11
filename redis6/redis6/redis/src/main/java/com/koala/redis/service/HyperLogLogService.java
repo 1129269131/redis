@@ -10,7 +10,8 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
- * day03
+ * day03：
+ *  天猫网站首页亿级UV的Redis统计方案
  * Create by koala on 2021-11-14
  */
 @Service
@@ -27,7 +28,7 @@ public class HyperLogLogService
     public void init()
     {
         log.info("------模拟后台有用户点击，每个用户ip不同------");
-        //自己启动线程模拟，实际上产不是线程
+        //自己启动线程模拟，实际生产不是线程
         new Thread(() -> {
             String ip = null;
             for (int i = 1; i <=200; i++) {
