@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  * @create 2021-05-09 14:48
  */
 @Data
-@ApiModel(value = "聚划算活动producet信息")
+@ApiModel(value = "聚划算活动product信息")
 public class Product {
 
     private Long id;
